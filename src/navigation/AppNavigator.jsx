@@ -13,8 +13,8 @@ const Tab = createBottomTabNavigator();
 
 export default function AppNavigator() {
     return (
-        <NavigationContainer> // administra las rutas de la aplicación
-        <Tab.Navigator // menu inferior de la aplicacion
+        <NavigationContainer> 
+        <Tab.Navigator 
             screenOptions={({ route }) => ({
             headerShown: false,
             tabBarActiveTintColor: "#1565C0",
@@ -41,17 +41,17 @@ export default function AppNavigator() {
             },
             })}
         >
-            <Tab.Screen // plantilla Inicio 
+            <Tab.Screen 
             name="Inicio"
             component={HomeScreen}
             />
 
-            <Tab.Screen // plantilla Historial 
+            <Tab.Screen 
             name="Historial"
             component={HistoryScreen}
             />
 
-            <Tab.Screen // plantilla configuración
+            <Tab.Screen 
             name="Configuración"
             component={SettingsScreen}
             />
