@@ -28,7 +28,7 @@ export default function ProgressCircle({
     circle:{
         width:200,
         height:200,
-        maginTop: 15,
+        marginTop: 15,
         borderRadius:100,
         backgroundColor:COLORS.white,
 

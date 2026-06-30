@@ -4,8 +4,6 @@ import COLORS from "../constants/colors";
 import Header from "../components/Header";
 import WaterButton from "../components/WaterButton";
 import ProgressCircle from "../components/ProgressCircle";
-import { useState, useEffect } from "react";
-import { saveWater, getWater } from "../services/storageService";
 import { useWater } from "../context/WaterContext";
 
 /**
