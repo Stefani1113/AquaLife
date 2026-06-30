@@ -6,6 +6,7 @@ import WaterButton from "../components/WaterButton";
 import ProgressCircle from "../components/ProgressCircle";
 import { useState, useEffect } from "react";
 import { saveWater, getWater } from "../services/storageService";
+import { useWater } from "../context/WaterContext";
 
 /**
  * Pantalla principal donde el usuario visualiza
@@ -13,28 +14,7 @@ import { saveWater, getWater } from "../services/storageService";
  */
 export default function HomeScreen() {
 
-    const addWater = (amount) => {
-    setWater((previousWater) => {
-        const total = Math.min(previousWater + amount, goal);
-
-        saveWater(total);
-
-        return total;
-    });
-    };
-
-    const [water, setWater] = useState(1200);
-
-    // Meta diaria de hidratación
-    const [goal, setGoal] = useState(2000);
-
-    const loadWater = async () => {
-        const storedWater = await getWater();
-        setWater(storedWater);
-    };
-
-    // Estado que almacena la cantidad de agua consumida
-    useEffect(() => { loadWater(); }, []);
+    const { water, goal, addWater } = useWater();
 
     const percentage = Math.round((water / goal) * 100);
 

@@ -1,9 +1,10 @@
 import AppNavigator from "./src/navigation/AppNavigator";
+import { WaterProvider } from "./src/context/WaterContext";
 
-/**
- * Colocamos la ruta principal 
- * @returns 
- */
 export default function App() {
-  return <AppNavigator />;
+  return (
+    <WaterProvider>
+      <AppNavigator />
+    </WaterProvider>
+  );
 }
