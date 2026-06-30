@@ -24,9 +24,10 @@ export default function WaterButton({ amount, onPress, filled = true }) { // rec
 
     const styles = StyleSheet.create({
     button: {
-        width: 120,
+        width: 145,
         height: 55,
-        borderRadius: 15,
+        paddingVertical:18,
+        borderRadius: 18,
         justifyContent: "center",
         alignItems: "center",
     },

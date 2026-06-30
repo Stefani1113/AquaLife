@@ -26,10 +26,10 @@ export default function ProgressCircle({
     const styles = StyleSheet.create({
 
     circle:{
-        width:200,
-        height:200,
+        width:180,
+        height:180,
         marginTop: 15,
-        borderRadius:100,
+        borderRadius:90,
         backgroundColor:COLORS.white,
 
         justifyContent:"center",
@@ -44,14 +44,14 @@ export default function ProgressCircle({
     },
 
     current:{
-        fontSize:52,
+        fontSize:46,
         fontWeight:"bold",
         color:COLORS.primary
     },
 
     goal:{
         marginTop:5,
-        fontSize:22,
+        fontSize:18,
         color:COLORS.text
     }
 

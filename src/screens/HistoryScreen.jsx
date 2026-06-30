@@ -1,64 +1,81 @@
 import { SafeAreaView, View, Text, StyleSheet } from "react-native";
-import { useWater } from "../context/WaterContext";
+
 import COLORS from "../constants/colors";
+import Header from "../components/Header";
+import HistoryItem from "../components/HistoryItem";
 
 export default function HistoryScreen() {
 
-    const { water, goal } = useWater();
-    const percentage = Math.round((water / goal) * 100);
+    const history = [
+        { id:1, time:"08:15", amount:250 },
+        { id:2, time:"10:30", amount:500 },
+        { id:3, time:"13:20", amount:250 },
+        { id:4, time:"16:10", amount:500 },
+        { id:5, time:"18:30", amount:250 },
+    ];
 
     return (
+
         <SafeAreaView style={styles.container}>
-        <Text style={styles.title}>Historial</Text>
 
-        <View style={styles.card}>
-            <Text style={styles.label}>Consumo de hoy</Text>
-            <Text style={styles.value}>{water} ml</Text>
-        </View>
+            <Header />
 
-        <View style={styles.card}>
-            <Text style={styles.label}>Meta diaria</Text>
-            <Text style={styles.value}>{goal} ml</Text>
-        </View>
+            <View style={styles.card}>
 
-        <View style={styles.card}>
-            <Text style={styles.label}>Progreso</Text>
-            <Text style={styles.value}>{percentage}%</Text>
-        </View>
+                <Text style={styles.subtitle}>
+                    REGISTRO DEL DÍA
+                </Text>
+
+                {
+                    history.map((item)=>(
+                        <HistoryItem
+                            key={item.id}
+                            time={item.time}
+                            amount={item.amount}
+                        />
+                    ))
+                }
+
+            </View>
+
         </SafeAreaView>
+
     );
+
+}
+
+const styles = StyleSheet.create({
+
+    container:{
+        flex:1,
+        backgroundColor:COLORS.background,
+        paddingHorizontal:28,
+        paddingTop:35
+    },
+
+    title:{
+        fontSize:34,
+        fontWeight:"bold",
+        color:COLORS.primary,
+        marginBottom:25
+    },
+
+    card:{
+        backgroundColor:"white",
+        borderRadius:35,
+        padding:25,
+
+        shadowColor:"#000",
+        shadowOpacity:0.05,
+        shadowRadius:10,
+        elevation:3
+    },
+
+    subtitle:{
+        color:"#89A4C5",
+        fontWeight:"bold",
+        fontSize:18,
+        marginBottom:10
     }
 
-    const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        backgroundColor: COLORS.background,
-        padding: 25,
-    },
-
-    title: {
-        fontSize: 32,
-        fontWeight: "bold",
-        color: COLORS.primary,
-        marginBottom: 30,
-    },
-
-    card: {
-        backgroundColor: COLORS.white,
-        borderRadius: 15,
-        padding: 20,
-        marginBottom: 20,
-    },
-
-    label: {
-        color: COLORS.text,
-        fontSize: 16,
-    },
-
-    value: {
-        marginTop: 10,
-        fontSize: 28,
-        fontWeight: "bold",
-        color: COLORS.primary,
-    },
 });

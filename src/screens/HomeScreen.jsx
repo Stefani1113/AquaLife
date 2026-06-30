@@ -64,8 +64,9 @@ export default function HomeScreen() {
     container: {
         flex: 1,
         backgroundColor: COLORS.background,
-        paddingHorizontal: 25,
-        paddingTop: 25,
+        paddingHorizontal: 28,
+        paddingTop: 35,
+        paddingBottom: 25
     },
 
     progressBackground:{
@@ -92,7 +93,7 @@ export default function HomeScreen() {
     },
 
     info: {
-        marginTop: 10,
+        marginTop: 15,
         textAlign: "center",
         color: COLORS.text,
         fontSize: 16,
@@ -101,6 +102,6 @@ export default function HomeScreen() {
     buttonContainer:{
         flexDirection:"row",
         justifyContent:"space-between",
-        marginTop:35
+        marginTop:25
     }
 });

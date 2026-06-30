@@ -2,6 +2,7 @@ import { useState } from "react";
 import { SafeAreaView, View, Text, TextInput, Pressable, StyleSheet, Alert, } from "react-native";
 
 import COLORS from "../constants/colors";
+import Header from "../components/Header";
 import { useWater } from "../context/WaterContext";
 
 export default function SettingsScreen() {
@@ -27,13 +28,20 @@ export default function SettingsScreen() {
 
     return (
         <SafeAreaView style={styles.container}>
+        <Header />
 
+        <Text style={styles.user}>
+            Usuario
+        </Text>
+
+        <View style={styles.card}>
+    
         <Text style={styles.title}>
             Configuración
         </Text>
 
         <Text style={styles.label}>
-            Meta diaria (ml)
+            META DIARIA
         </Text>
 
         <TextInput
@@ -51,6 +59,8 @@ export default function SettingsScreen() {
             Guardar meta
             </Text>
         </Pressable>
+
+        </View>
 
         </SafeAreaView>
     );
@@ -72,9 +82,10 @@ export default function SettingsScreen() {
     },
 
     label:{
-        fontSize:18,
-        color:COLORS.text,
-        marginBottom:10
+        color:"#6E87A5",
+        fontWeight:"bold",
+        fontSize:16,
+        marginBottom:20
     },
 
     input:{
@@ -96,5 +107,18 @@ export default function SettingsScreen() {
         color:"white",
         fontWeight:"bold",
         fontSize:18
+    },
+
+    card:{
+        backgroundColor:"#DCEAF8",
+        borderRadius:25,
+        padding:25,
+        marginTop:20
+    },
+
+    user:{
+        marginTop: 2,
+        color: COLORS.text,
+        fontSize: 15,
     }
 });
